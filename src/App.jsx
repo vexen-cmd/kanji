@@ -100,6 +100,10 @@ function App() {
         <div className="prompt">
           <p id="question-title">Which kanji means</p>
           <h2>{question.meaning}</h2>
+          <div className="prompt-details" lang="ja">
+            <span>Japanese: {question.japaneseMeaning}</span>
+            <span>Katakana: {question.katakana}</span>
+          </div>
         </div>
 
         <div className="options" role="group" aria-label="Kanji choices">
@@ -132,8 +136,8 @@ function App() {
             <strong>{isCorrect ? 'Correct!' : 'Not quite.'}</strong>
             <span>
               {isCorrect
-                ? `${question.kanji} means “${question.meaning}.”`
-                : `${selectedKanji.kanji} means “${selectedKanji.meaning}.” The correct answer is ${question.kanji}.`}
+                ? `${question.kanji} means “${question.meaning}” (${question.japaneseMeaning}, ${question.katakana}).`
+                : `${selectedKanji.kanji} means “${selectedKanji.meaning}” (${selectedKanji.japaneseMeaning}, ${selectedKanji.katakana}). The correct answer is ${question.kanji}.`}
             </span>
           </div>
         )}
